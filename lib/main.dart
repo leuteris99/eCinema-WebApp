@@ -1,4 +1,7 @@
+import 'package:cinema_app/components/main_scaffold.dart';
 import 'package:flutter/material.dart';
+
+import 'routes/book_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,6 +45,9 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       themeMode: ThemeMode.light,
       home: const MyHomePage(title: 'Welcome to $title'),
+      routes: {
+        '/book': (context) => const BookPage(),
+      },
     );
   }
 }
@@ -58,15 +64,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        title: Center(
-          child: Text(widget.title),
-        ),
-      ),
+    return MainScaffold(
+      title: widget.title,
       body: Center(
-        child: Container(),
+        child: ElevatedButton(
+            child: const Text('Book your tickets.'),
+            onPressed: () {
+              Navigator.pushNamed(context, '/book');
+            }),
       ),
     );
   }
