@@ -1,5 +1,7 @@
+import 'package:cinema_app/components/checkout.dart';
 import 'package:cinema_app/components/main_scaffold.dart';
 import 'package:cinema_app/components/movie_selector.dart';
+import 'package:cinema_app/components/theater_selector.dart';
 import 'package:flutter/material.dart';
 
 class BookPage extends StatefulWidget {
@@ -21,7 +23,7 @@ class _BookPageState extends State<BookPage> {
       ),
       const Step(
         title: Text('Theater'),
-        content: Text('Content for Step 2'),
+        content: TheaterSelector(),
       ),
       const Step(
         title: Text("Time"),
@@ -33,7 +35,7 @@ class _BookPageState extends State<BookPage> {
       ),
       const Step(
         title: Text("Checkout"),
-        content: Text("Content for Step 5"),
+        content: Checkout(),
       ),
     ];
     return MainScaffold(
